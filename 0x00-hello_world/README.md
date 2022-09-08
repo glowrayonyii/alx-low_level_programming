@@ -1,1 +1,1 @@
-assembly code of C
+linker
