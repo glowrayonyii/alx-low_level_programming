@@ -1,32 +1,20 @@
-#include<stdio.h>
+#include <stdio.h>
+#include "main.h"
 
-int main()
+/**
+ * print_diagsums - Entry point
+ * @a: input
+ * @size: input
+ * Return: Always 0 (Success)
+ */
+void print_diagsums(int *a, int size)
 {
- int i,j,n;
- float a[10][10], sum=0.0;
+	int i, n, total1 = 0, total2 = 0;
 
- printf("Enter order of matrix:\n");
- scanf("%d", &n);
- printf("Enter matrix elements:\n");
- for(i=0;i< n;i++)
- {
-  for(j=0;j< n;j++)
-  {
-   printf("a[%d][%d]=",i,j);
-   scanf("%f", &a[i][j]);
-  }
- }
- for(i=0;i< n;i++)
- {
-  for(j=0;j< n;j++)
-  {
-   if(i==j || i+j==n-1)
-   {
-    sum = sum + a[i][j];
-   }
-  }
- }
- printf("Sum = %f\n", sum);
+	for (i = 0; i <= (size * size); i = i + size + 1)
+		total1 = total1 + a[i];
 
- return 0;
+	for (n = size - 1; n <= (size * size) - size; n = n + size - 1)
+		total2 = total2 + a[n];
+	printf("%d, %d\n", total1, total2);
 }
